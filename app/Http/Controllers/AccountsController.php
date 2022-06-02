@@ -41,6 +41,7 @@ class AccountsController extends Controller
             return back()->with('warning',"Name can't be greater than 250 word");
 
         $sql="INSERT INTO `acc_transection`(`date`, `store_id`, `transection_type`, `transection_name`, `amount`, `trans_perpose`) VALUES ('".date('Y-m-d')."','".session('store-id')."','".$req->transection_type."','".$req->transection_name."','".$req->amount."','".$req->trans_perpose."')";
+        dd($sql);
         DB::insert($sql);
         return back()->with('success',"Transection successfully created!");
 

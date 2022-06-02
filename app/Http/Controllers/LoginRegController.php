@@ -129,10 +129,7 @@ class LoginRegController extends Controller
   
     function notification()
     {
-        //notification
-        $notficationSql="SELECT *,SUBSTRING(notification_body,1,50) as sort_notification_body FROM `notification` where notification_to='Seller' order by id desc limit 5";
-        $notification=DB::select($notficationSql);
-        session()->put('notification',$notification);
+        
     }
 
     function storeLogout()
@@ -144,10 +141,6 @@ class LoginRegController extends Controller
 
     function cartNumber()
     {
-        $cartSql="select count(*) as cart_num from b2b_carts where store_id='".session('store-id')."' and active=1";
-        $cartNum=DB::select($cartSql);
-
-        $cartInfo['number']=$cartNum[0]->cart_num;
-        session()->put('cartInfo',$cartInfo);
+        
     }
 }
